@@ -1,5 +1,7 @@
 package ar.franciscoruiz.inventories.products.domain;
 
+import ar.franciscoruiz.inventories.categories.domain.CategoryId;
+
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -12,8 +14,19 @@ public final class Product {
     private final LocalDateTime      updatedAt;
     private final LocalDateTime      createdAt;
     private final ProductStatus      status;
+    private final CategoryId         categoryId;
 
-    public Product(ProductId id, ProductName name, ProductDescription description, ProductPrice price, ProductBarcode barcode, LocalDateTime updatedAt, LocalDateTime createdAt, ProductStatus status) {
+    public Product(
+        ProductId id,
+        ProductName name,
+        ProductDescription description,
+        ProductPrice price,
+        ProductBarcode barcode,
+        LocalDateTime updatedAt,
+        LocalDateTime createdAt,
+        ProductStatus status,
+        CategoryId categoryId
+    ) {
         this.id          = id;
         this.name        = name;
         this.description = description;
@@ -22,6 +35,7 @@ public final class Product {
         this.updatedAt   = updatedAt;
         this.createdAt   = createdAt;
         this.status      = status;
+        this.categoryId  = categoryId;
     }
 
     public Product() {
@@ -33,6 +47,7 @@ public final class Product {
         this.updatedAt   = null;
         this.createdAt   = null;
         this.status      = null;
+        this.categoryId  = null;
     }
 
     public ProductId id() {
@@ -67,6 +82,10 @@ public final class Product {
         return status;
     }
 
+    public CategoryId categoryId() {
+        return categoryId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -76,11 +95,11 @@ public final class Product {
             return false;
         }
         Product product = (Product) o;
-        return Objects.equals(id, product.id) && Objects.equals(description, product.description) && Objects.equals(price, product.price) && Objects.equals(barcode, product.barcode) && Objects.equals(updatedAt, product.updatedAt) && Objects.equals(createdAt, product.createdAt) && Objects.equals(status, product.status);
+        return Objects.equals(id, product.id) && Objects.equals(name, product.name) && Objects.equals(description, product.description) && Objects.equals(price, product.price) && Objects.equals(barcode, product.barcode) && Objects.equals(updatedAt, product.updatedAt) && Objects.equals(createdAt, product.createdAt) && Objects.equals(status, product.status) && Objects.equals(categoryId, product.categoryId);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, description, price, barcode, updatedAt, createdAt, status);
+        return Objects.hash(id, name, description, price, barcode, updatedAt, createdAt, status, categoryId);
     }
 }
