@@ -1,10 +1,32 @@
 rootProject.name = 'ecommerce'
 
-include ':shared'
-project(':shared').projectDir = new File('src/shared')
+include ':analytics'
+project(':analytics').projectDir = new File('src/analytics')
 
 include ':backoffice'
 project(':backoffice').projectDir = new File('src/backoffice')
 
+include ':companies'
+project(':companies').projectDir = new File('src/companies')
+
+include ':inventories'
+project(':inventories').projectDir = new File('src/inventories')
+
+include ':payments'
+project(':payments').projectDir = new File('src/payments')
+
+include ':purchases'
+project(':purchases').projectDir = new File('src/purchases')
+
 include ':retention'
 project(':retention').projectDir = new File('src/retention')
+
+include ':shared'
+project(':shared').projectDir = new File('src/shared')
+
+include ':users'
+project(':users').projectDir = new File('src/users')
+
+
+
+

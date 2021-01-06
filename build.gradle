@@ -151,9 +151,15 @@ mainClassName = "${packagesName}.apps.Starter"
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
 
-    implementation project(":shared")
+    implementation project(":analytics")
     implementation project(":backoffice")
+    implementation project(":companies")
+    implementation project(":inventories")
+    implementation project(":payments")
+    implementation project(":purchases")
     implementation project(":retention")
+    implementation project(":shared")
+    implementation project(":users")
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation project(":shared").sourceSets.test.output
