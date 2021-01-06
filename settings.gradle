@@ -1,0 +1,10 @@
+rootProject.name = 'ecommerce'
+
+include ':shared'
+project(':shared').projectDir = new File('src/shared')
+
+include ':backoffice'
+project(':backoffice').projectDir = new File('src/backoffice')
+
+include ':retention'
+project(':retention').projectDir = new File('src/retention')
